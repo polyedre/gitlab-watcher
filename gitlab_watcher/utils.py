@@ -1,5 +1,6 @@
 """Utilities used by other modules"""
 
+from datetime import datetime
 from dateutil.parser import parse
 from humanize import naturaltime
 
@@ -12,7 +13,9 @@ def enrich_gitlab_list(elements, gitlab_api):
     for element in elements:
         element.project = get_project_by_id(element.project_id, gitlab_api)
         element.updated_at_datetime = parse(element.updated_at, ignoretz=True)
-        element.human_relative_time = naturaltime(element.updated_at_datetime)
+        element.human_relative_time = naturaltime(
+            element.updated_at_datetime, when=datetime.utcnow()
+        )
 
     return sorted(elements, key=lambda i: i.updated_at_datetime, reverse=True)
 
