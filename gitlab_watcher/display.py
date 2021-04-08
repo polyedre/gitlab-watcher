@@ -13,6 +13,8 @@ def pretty_print_gitlab_list(elements, name):
             f"{element.project.name:20.20s}",
             f"{Fore.GREEN}{Style.BRIGHT}{element.title:100.100s}{Style.RESET_ALL}",
             f"{Style.DIM}{element.human_relative_time}{Style.RESET_ALL}",
+            f"{Style.DIM}{element.human_relative_time:12.12s}{Style.RESET_ALL}",
+            f"{Fore.BLUE}{Style.DIM}{element.web_url}{Style.RESET_ALL}",
         )
 
 
