@@ -9,10 +9,13 @@ def pretty_print_gitlab_list(elements, name):
     the related project name are printed."""
     print_section_title(f"{name} ({len(elements)})")
     for element in elements:
+        element.title_and_labels = (
+            f"{Style.BRIGHT}{Fore.YELLOW if element.title.startswith('Draft: ') else Fore.GREEN}{element.title}   "
+            f"{Style.DIM}{Fore.RED}{', '.join(element.labels)}{Style.RESET_ALL}"
+        )
         print(
             f"{element.project.name:20.20s}",
-            f"{Fore.YELLOW if element.title.startswith('Draft: ') else Fore.GREEN}",
-            f"{Style.BRIGHT}{element.title:100.100s}{Style.RESET_ALL}",
+            f"{element.title_and_labels:120.120s}",
             f"{Style.DIM}{element.human_relative_time:12.12s}{Style.RESET_ALL}",
             f"{Fore.BLUE}{Style.DIM}{element.web_url}{Style.RESET_ALL}",
         )
