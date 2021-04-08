@@ -11,7 +11,8 @@ def pretty_print_gitlab_list(elements, name):
     for element in elements:
         print(
             f"{element.project.name:20.20s}",
-            f"{Fore.GREEN}{Style.BRIGHT}{element.title:100.100s}{Style.RESET_ALL}",
+            f"{Fore.YELLOW if element.title.startswith('Draft: ') else Fore.GREEN}",
+            f"{Style.BRIGHT}{element.title:100.100s}{Style.RESET_ALL}",
             f"{Style.DIM}{element.human_relative_time}{Style.RESET_ALL}",
         )
 
