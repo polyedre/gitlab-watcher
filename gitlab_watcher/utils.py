@@ -41,5 +41,10 @@ class GitlabElement:
         self.updated_at = (
             naturaltime(self.updated_at_datetime, when=datetime.utcnow()) or ""
         )
-        self.labels = ", ".join(element.labels)
-        self.url = element.web_url
+
+        try:
+            self.labels = ", ".join(element.labels)
+            self.url = element.web_url
+        except AttributeError:
+            self.url = element.target_url
+            self.labels = ""
