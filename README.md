@@ -5,7 +5,7 @@
 <h4 align="center">A utility to list activities assigned to an user on Gitlab (Issues, Merge Requests, TODOs).</h4>
 
 <p align="center">
-  <a href="#install">How To Use</a> •
+  <a href="#install">Install</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#license">License</a>
 </p>
