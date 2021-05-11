@@ -10,6 +10,8 @@
   <a href="#license">License</a>
 </p>
 
+![Screenshot](./docs/images/screenshots/screenshot-gitlab-watcher.png)
+
 ## Install
 
 1. Clone the repository and cd to it.
