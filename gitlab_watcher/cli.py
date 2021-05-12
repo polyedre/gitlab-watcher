@@ -5,7 +5,7 @@ import argparse
 
 import gitlab
 from gitlab_watcher import issues, todos, merge_requests
-from gitlab_watcher.display import pretty_print_gitlab_list, section_separator
+from gitlab_watcher.display import pretty_print_gitlab_list
 
 
 def get_parser():
@@ -30,7 +30,5 @@ def main():
     gitlab_api.auth()
 
     pretty_print_gitlab_list(issues.get(gitlab_api), "ISSUES")
-    section_separator()
     pretty_print_gitlab_list(merge_requests.get(gitlab_api), "MERGE REQUESTS")
-    section_separator()
     pretty_print_gitlab_list(todos.get(gitlab_api), "TODOs")

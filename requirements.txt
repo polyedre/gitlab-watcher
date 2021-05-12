@@ -1,4 +1,4 @@
-colorama
 python-gitlab
 python-dateutil
 humanize
+rich
